@@ -1,5 +1,5 @@
 
-from app.models import Case, Suspect, Clue
+from app.models import Case, Suspect, Clue, Investigation
 
 
 # CASES
@@ -78,7 +78,6 @@ clues = [
 
 
 # SECRET SOLUTION
-# This information must not be exposed through public API endpoints.
 solutions = {
     101: {
         "culprit_id": 3,
@@ -86,3 +85,23 @@ solutions = {
         "explanation": "The security guard had access to the surveillance system and could manipulate the recordings."
     }
 }
+
+
+# ASSIGNMENT 2 - MOCK INVESTIGATIONS
+
+investigations = [
+    Investigation(
+        id="investigation_101",
+        title="The Midnight Murder",
+        description="Investigate the mysterious death of a businessman.",
+        status="active",
+        ownerId="user-a"
+    ),
+    Investigation(
+        id="investigation_102",
+        title="The Missing Documents",
+        description="Investigate the disappearance of confidential company documents.",
+        status="active",
+        ownerId="user-b"
+    )
+]
