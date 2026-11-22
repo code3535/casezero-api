@@ -1,17 +1,40 @@
-from app.routers.investigations import router as investigations_router
+
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.data import cases, suspects, clues, solutions
 from app.models import AskRequest, InvestigateRequest, AccusationRequest
+from app.routers.investigations import router as investigations_router
+
 
 # Shared investigation progress
 discovered_clues = []
 
+
+# CREATE FASTAPI APP
 app = FastAPI(
     title="CaseZero API",
     description="Backend API for the CaseZero AI Mystery Game",
     version="1.0.0"
 )
+
+
+# ALLOW FRONTEND TO COMMUNICATE WITH BACKEND
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# REGISTER INVESTIGATION ROUTES
 app.include_router(investigations_router)
+
 
 # HOME
 @app.get("/")
@@ -67,7 +90,6 @@ def get_clue(clue_id: int):
 # SUSPECT INTERROGATION
 @app.post("/ask")
 def ask_suspect(request: AskRequest):
-
     suspect = None
 
     for s in suspects:
@@ -99,11 +121,9 @@ def ask_suspect(request: AskRequest):
 # CLUE DISCOVERY
 @app.post("/investigate")
 def investigate(request: InvestigateRequest):
-
     location = request.location.strip().lower()
 
     for clue in clues:
-
         if clue.found_at.strip().lower() == location:
 
             if clue.clue_id in discovered_clues:
@@ -124,16 +144,15 @@ def investigate(request: InvestigateRequest):
 # DISCOVERED CLUES
 @app.get("/discovered-clues")
 def get_discovered_clues():
-
     return [
         clue for clue in clues
         if clue.clue_id in discovered_clues
     ]
+
+
 # FINAL ACCUSATION
 @app.post("/accuse")
 def accuse(request: AccusationRequest):
-
-    # Check whether the suspect exists
     suspect = None
 
     for s in suspects:
@@ -147,12 +166,9 @@ def accuse(request: AccusationRequest):
             detail="Suspect not found"
         )
 
-    # Get the secret solution
     solution = solutions[cases[0].case_id]
 
-    # Check the accusation
     if request.suspect_id == solution["culprit_id"]:
-
         return {
             "correct": True,
             "message": "Congratulations! You solved the case!",
