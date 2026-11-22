@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #10131b;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #171c27;
+    border-bottom: 1px solid #303746;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #e0a84e;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #c4cad5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #e0a84e;
+}
+
+.status {
+    color: #65d69a;
+    font-size: 12px;
+}
+
+.hero {
+    padding: 100px 8%;
+    background: linear-gradient(120deg, #171e2d, #10131b);
+}
+
+.eyebrow {
+    color: #e0a84e;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #e0a84e;
+}
+
+.hero-description {
+    color: #aab2c1;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.primary-button {
+    display: inline-block;
+    border: none;
+    background: #d69b3d;
+    color: #151515;
+    padding: 13px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background: #efb95f;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 65px 8%;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.section-heading h2,
+.interrogation h2 {
+    font-size: 30px;
+}
+
+.counter {
+    color: #e0a84e;
+    font-size: 12px;
+}
+
+.case-grid,
+.suspect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.case-card,
+.suspect-card {
+    background: #1b2230;
+    border: 1px solid #303746;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+.case-card:hover,
+.suspect-card:hover {
+    border-color: #d69b3d;
+}
+
+.case-card h3,
+.suspect-card h3 {
+    margin-bottom: 10px;
+}
+
+.case-card p,
+.suspect-card p {
+    color: #aab2c1;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.case-status {
+    display: inline-block;
+    color: #65d69a;
+    background: #203b32;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.select-button {
+    background: transparent;
+    border: 1px solid #d69b3d;
+    color: #e0a84e;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select-button:hover {
+    background: #d69b3d;
+    color: #151515;
+}
+
+.interrogation {
+    background: #171c27;
+}
+
+.muted {
+    color: #aab2c1;
+    margin-top: 8px;
+}
+
+.interrogation-panel {
+    max-width: 650px;
+    margin-top: 28px;
+    padding: 28px;
+    background: #202735;
+    border: 1px solid #303746;
+    border-radius: 10px;
+}
+
+.interrogation-panel label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.interrogation-panel select,
+.interrogation-panel textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 6px;
+    border: 1px solid #424c60;
+    background: #121722;
+    color: white;
+    font-family: inherit;
+}
+
+.interrogation-panel textarea {
+    resize: vertical;
+}
+
+.interrogation-panel .primary-button {
+    margin-top: 18px;
+}
+
+.answer {
+    margin-top: 22px;
+    padding: 16px;
+    background: #151c28;
+    border-left: 3px solid #d69b3d;
+    border-radius: 5px;
+    color: #c4cad5;
+    min-height: 55px;
+}
+
+footer {
+    padding: 35px 8%;
+    text-align: center;
+    border-top: 1px solid #303746;
+    color: #929aaa;
+    font-size: 13px;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .status {
+        display: none;
+    }
+
+    .hero {
+        padding: 70px 7%;
+    }
+
+    .section {
+        padding: 45px 7%;
+    }
+}

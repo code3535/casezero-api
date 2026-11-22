@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaseZero | Mystery Investigation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">CASE<span>ZERO</span></div>
+        <nav>
+            <a href="#investigations">Investigations</a>
+            <a href="#suspects">Suspects</a>
+            <a href="#interrogation">Interrogation</a>
+        </nav>
+        <div class="status">● SYSTEM ONLINE</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">INTELLIGENCE & INVESTIGATION SYSTEM</p>
+            <h1>Every mystery has<br>a <span>beginning.</span></h1>
+            <p class="hero-description">
+                Investigate cases, question suspects and discover
+                the truth behind every mystery.
+            </p>
+            <a href="#investigations" class="primary-button">
+                Explore Investigations
+            </a>
+        </section>
+
+        <section id="investigations" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CASE MANAGEMENT</p>
+                    <h2>Investigations</h2>
+                </div>
+                <span class="counter" id="case-count">0 CASES</span>
+            </div>
+
+            <div id="investigation-list" class="case-grid"></div>
+        </section>
+
+        <section id="suspects" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PEOPLE OF INTEREST</p>
+                    <h2>Suspects</h2>
+                </div>
+            </div>
+
+            <div id="suspect-list" class="suspect-grid"></div>
+        </section>
+
+        <section id="interrogation" class="section interrogation">
+            <div>
+                <p class="eyebrow">INVESTIGATION ROOM</p>
+                <h2>Interrogate a suspect</h2>
+                <p class="muted">
+                    Select a suspect and ask questions to uncover
+                    information about the case.
+                </p>
+            </div>
+
+            <div class="interrogation-panel">
+                <label for="suspect-select">Select suspect</label>
+                <select id="suspect-select">
+                    <option value="">Choose a suspect</option>
+                </select>
+
+                <label for="question">Your question</label>
+                <textarea id="question" placeholder="Ask the suspect a question..." rows="4"></textarea>
+
+                <button id="ask-button" class="primary-button">
+                    Ask Question
+                </button>
+
+                <div id="answer" class="answer">
+                    Your interrogation results will appear here.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">CASE<span>ZERO</span></div>
+        <p>Think carefully. Question everything. Find the truth.</p>
+        <p>© 2026 CaseZero Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
