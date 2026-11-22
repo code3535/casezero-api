@@ -25,3 +25,8 @@ class Clue(BaseModel):
     title: str
     description: str
     found_at: str
+
+
+class AskRequest(BaseModel):
+    suspect_id: int
+    question: str
